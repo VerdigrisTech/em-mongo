@@ -32,6 +32,7 @@ module EM::Mongo
     def collection(name = EM::Mongo::DEFAULT_NS)
       @collections[name] ||= EM::Mongo::Collection.new(@db_name, name, @em_connection)
     end
+    alias_method :[], :collection
 
     # Get the connection associated with this database
     #
@@ -385,4 +386,6 @@ module EM::Mongo
     end
 
   end
+
+  DB = Database
 end
